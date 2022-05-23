@@ -1,6 +1,5 @@
 package hello.jdbc.repository;
 
-import hello.jdbc.connection.DBConnectionUtil;
 import hello.jdbc.domain.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.support.JdbcUtils;
@@ -10,14 +9,14 @@ import java.sql.*;
 import java.util.NoSuchElementException;
 
 /**
- * JDBC DataSource 사용, JdbcUtils 사용
+ * JDBC - ConnectionParam
  */
 @Slf4j
-public class MemberRepositoryV1 {
+public class MemberRepositoryV2 {
 
     private final DataSource dataSource;
 
-    public MemberRepositoryV1(DataSource dataSource) {
+    public MemberRepositoryV2(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -43,7 +42,6 @@ public class MemberRepositoryV1 {
         }
 
     }
-
 
     public Member findById(String memberId) throws SQLException {
         String sql = "select * from member where member_id = ?";
